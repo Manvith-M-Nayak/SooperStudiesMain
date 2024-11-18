@@ -1,0 +1,107 @@
+/* Ensure the entire page is filled */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #fce4ec); /* Beautiful gradient */
+  }
+  
+  /* Grid Layout for Full Page */
+  .dashboard-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr; /* Equal height for 3 sections */
+    height: 100%; /* Full height of the viewport */
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Common Section Styling */
+  .dashboard-container > div {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Welcome Message Styling */
+  .welcome-message {
+    background: linear-gradient(135deg, #ffccbc, #ffe0b2); /* Warm gradient */
+    text-align: center;
+  }
+  
+  .welcome-message h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-message p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  /* Tasks Section Styling */
+  .tasks-to-do h3,
+  .classes-to-continue h3 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .task-item {
+    background-color: #e7f4ff;
+    color: #003366;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Classes Section Styling */
+  .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .class-item {
+    background-color: #fff4e5;
+    color: #664400;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover Effects */
+  .task-item:hover, .class-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      grid-template-rows: repeat(3, auto); /* Adapt height for small screens */
+    }
+  }
+  
