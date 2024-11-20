@@ -11,7 +11,6 @@ function HeaderWithSidebar() {
     techniques: false,
     game: false,
   });
-  const [searchitem, setSearchItem]=useState('');
 
   const toggleDropdown = (menu) => {
     setDropdownState((prevState) => ({
@@ -28,12 +27,6 @@ function HeaderWithSidebar() {
     setSidebarOpen(false);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      console.log(searchitem); 
-      alert(`You searched for: ${searchitem}`); 
-    }
-  };
 
   // const setSearch = (e)=>{
   //   setSearchItem(e.target.value);
@@ -56,7 +49,6 @@ function HeaderWithSidebar() {
             <div className="dropdown-content">
               <Link to="/pesu" onClick={closeSidebar}>PESU</Link>
               <Link to="/wikipedia" onClick={closeSidebar}>Wikipedia</Link>
-              <Link to="/videos" onClick={closeSidebar}>Videos</Link>
             </div>
           )}
         </div>
@@ -65,7 +57,6 @@ function HeaderWithSidebar() {
           {dropdownState.community && (
             <div className="dropdown-content">
               <Link to="/events" onClick={closeSidebar}>Events</Link>
-              <Link to="/discussions" onClick={closeSidebar}>Discussions</Link>
             </div>
           )}
         </div>
@@ -73,9 +64,8 @@ function HeaderWithSidebar() {
           <span className="headings accessibility" onClick={() => toggleDropdown('accessibility')}>Accessibility</span>
           {dropdownState.accessibility && (
             <div className="dropdown-content">
-              <button onClick={closeSidebar}>Text-to-Speech</button>
-              <button onClick={closeSidebar}>Screen Readers</button>
-              <button onClick={closeSidebar}>High Contrast</button>
+              <Link to="/texttospeech" onClick={closeSidebar}>Text To Speech</Link>
+              <Link to="/highcontrast" onClick={closeSidebar}>High contrast</Link>
             </div>
           )}
         </div>
@@ -84,7 +74,6 @@ function HeaderWithSidebar() {
           {dropdownState.techniques && (
             <div className="dropdown-content">
               <Link to="/pomodoro" onClick={closeSidebar}>Pomodoro</Link>
-              <Link to="/mindmaps" onClick={closeSidebar}>Mind Maps</Link>
             </div>
           )}
         </div>
@@ -93,7 +82,6 @@ function HeaderWithSidebar() {
           {dropdownState.game && (
             <div className="dropdown-content">
               <Link to="/memorygames" onClick={closeSidebar}>Memory Games</Link>
-              <Link to="/achievements" onClick={closeSidebar}>Achievements</Link>
             </div>
           )}
         </div>
@@ -101,9 +89,7 @@ function HeaderWithSidebar() {
       <div className={`sidebar-container ${isSidebarOpen ? 'open' : 'closed'}`}>
         <div className="sidebar_content">
           <ul className="sidebar_list">
-            <li className="sidebar_item"><Link to="/tasks" onClick={closeSidebar}>Tasks</Link></li>
-            <li className="sidebar_item"><Link to="/notifications" onClick={closeSidebar}>Notifications</Link></li>
-            <li className="sidebar_item"><Link to="/settings" onClick={closeSidebar}>Settings</Link></li>
+            <li className="sidebar_item"><Link to="/aboutus" onClick={closeSidebar}>About Us</Link></li>
             <li className="sidebar_item"><Link to="/logout" onClick={closeSidebar}>Logout</Link></li>
           </ul>
         </div>
@@ -114,14 +100,6 @@ function HeaderWithSidebar() {
         >
           Close Sidebar
         </button>
-      </div>
-      <div className="search">
-        <input 
-        type="text" 
-        placeholder="Search..." 
-        value={searchitem}
-        onChange={(e)=>{setSearchItem(e.target.value)}}
-        onKeyDown={handleKeyDown}/>
       </div>
     </div>
   );

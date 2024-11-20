@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Logout() {
-  return <div><h1>Logout Page</h1></div>;
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/loginpage'); 
+  }, [navigate]);
+
+  return (
+    <div>
+      <h1>Logging out...</h1>
+    </div>
+  );
 }
 
 export default Logout;

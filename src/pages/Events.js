@@ -2,14 +2,12 @@ import React from 'react';
 import HeaderWithSidebar from '../Sidebar';
 
 function Events() {
-  return (
+  return(
     <div>
-      <HeaderWithSidebar />
-      <div className="content">
-        <h1>Events</h1>
-        <p>Welcome to the events page! Here you can view and participate in upcoming events.</p>
-        {/* Additional event content can be added here */}
-      </div>
+        <HeaderWithSidebar />
+        <div className="container">
+            <h1>Events to be held in PES University: </h1>
+        </div>
     </div>
   );
 }
